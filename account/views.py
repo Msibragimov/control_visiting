@@ -27,11 +27,9 @@ def login_request(request):
 			if user is not None:
 				if user.is_staff == True:
 					login(request, user)
-					messages.info(request, f"You are now logged in as {username}.")
 					return redirect("staffpage")
 				else:
 					login(request, user)
-					messages.info(request, f"You are now logged in as {username}.")
 					return redirect("homepage")
 			else:
 				messages.error(request,"Invalid username or password.")
