@@ -20,6 +20,13 @@
     <div class="col-md-8">
         <img class="mb-1" style="margin-left: 30%; margin-top: 8%;" src="{% static 'images/avatar.png' %}" alt="" width="80" height="80">
         <h1 class="text-center">Login</h1>
+        {% if messages %}
+          {% for message in messages %}
+          <div class="alert alert-danger alert-dismissible fade show" role="alert" style="margin-top: 4%;"> {{message}}
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+          </div>
+          {% endfor %}
+        {% endif %}
         <form method="post" action="{% url 'login' %}">
           {% csrf_token %}
           <div class="form-group row">

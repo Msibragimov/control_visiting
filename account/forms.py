@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
-from django.utils.translation import gettext_lazy as _
+
 
 # Create your forms here.
 
@@ -13,10 +13,10 @@ class RegistrationForm(UserCreationForm, forms.ModelForm):
 
     def __init__(self, *args, **kwargs) -> None:
         super(RegistrationForm, self).__init__(*args, **kwargs)
-        self.fields['username'].widget.attrs.update({'class':'form-control','placeholder':_('Enter Username')})
-        self.fields['email'].widget.attrs.update({'class':'form-control','placeholder':_('Enter email')})
-        self.fields['password1'].widget.attrs.update({'class':'form-control','placeholder':_('Enter password')})
-        self.fields['password2'].widget.attrs.update({'class':'form-control','placeholder':_('Enter password confirmation')})
+        self.fields['username'].widget.attrs.update({'class':'form-control','placeholder':'Enter Username'})
+        self.fields['email'].widget.attrs.update({'class':'form-control','placeholder':'Enter email'})
+        self.fields['password1'].widget.attrs.update({'class':'form-control','placeholder':'Enter password'})
+        self.fields['password2'].widget.attrs.update({'class':'form-control','placeholder':'Enter password confirmation'})
 
     def save(self, commit=True):
         user = super(RegistrationForm, self).save(commit=False)
@@ -36,5 +36,5 @@ class UserForm(AuthenticationForm):
     def __init__(self, *args, **kwargs):
         super(UserForm, self).__init__(*args,**kwargs)
         
-        self.fields['username'].widget.attrs.update({'class':'form-control','placeholder':_('Email or Username')})
-        self.fields['password'].widget.attrs.update({'class':'form-control','placeholder':_('Password')})
+        self.fields['username'].widget.attrs.update({'class':'form-control','placeholder':'Email or Username'})
+        self.fields['password'].widget.attrs.update({'class':'form-control','placeholder':'Password'})
