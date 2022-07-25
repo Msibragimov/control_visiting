@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  web:
+    build: .
+    ports: [18000:18000]
+    image: web:app
+    volumes:
+      - app-volumes:/app
+    env_file:
+      - .env
+    entrypoint: python
+    command: ["manage.py", "runserver", "0.0.0.0:18000"]
+
+volumes:
+  app-volumes:
