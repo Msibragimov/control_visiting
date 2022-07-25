@@ -1,13 +1,25 @@
 {% extends 'main/base.html' %}
 {% load static %}
-{% load i18n %}
+
 {% block body %}
+
+<style>
+.container-login {
+    position: relative;
+    margin-left: 35%;
+    margin-top: 6.5%;
+    width: 30%;
+    height: 40%;
+    border-radius: 1.35em;
+    box-shadow: 0 10px 15px 0 rgba(0, 0, 0, 0.548);
+  }
+</style>
 
 <div class="container-login">
   <div class="row justify-content-md-center">
     <div class="col-md-8">
         <img class="mb-1" style="margin-left: 30%; margin-top: 8%;" src="{% static 'images/avatar.png' %}" alt="" width="80" height="80">
-        <h1 class="text-center">{% trans "Login" %}</h1>
+        <h1 class="text-center">Login</h1>
         <form method="post" action="{% url 'login' %}">
           {% csrf_token %}
           <div class="form-group row">
@@ -18,9 +30,9 @@
             <label class="col-sm-3 col-form-label"></label>
             {{login_form.password}}
           </div>
-          <button class="btn btn-block btn-primary" type="submit">{% trans "Login" %}</button>
+          <button class="btn btn-block btn-primary" type="submit">Login</button>
         </form>
-        <p class="col-sm-12 text-center">{% trans "Don't have an account?" %} <a class="text-info" href="{% url 'register' %}">{% trans "Create one." %}</a></p>
+        <p class="col-sm-12 text-center">Don't have an account? <a class="text-info" href="{% url 'register' %}">Create one.</a></p>
     </div>
   </div>
 </div>
