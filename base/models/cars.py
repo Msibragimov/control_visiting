@@ -1,5 +1,4 @@
 from django.db import models
-from django.contrib.auth import get_user_model
 
 
 OWNER_TYPE = [
@@ -8,10 +7,7 @@ OWNER_TYPE = [
 ]
 
 
-User = get_user_model()
-
 class Car(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
     owner = models.CharField(max_length=50)
     allowed = models.BooleanField(default=False)
     owner_is = models.CharField(max_length=50, choices=OWNER_TYPE)
